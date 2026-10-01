@@ -43,7 +43,8 @@
   - [Cài đặt Git Aliases tăng tốc độ gõ lệnh x5 lần](#cài-đặt-git-aliases-tăng-tốc-độ-gõ-lệnh-x5-lần)
   - [Mở code bằng VS Code Web trong 1 giây](#mở-code-bằng-vs-code-web-trong-1-giây)
 - [6. Danh Mục Liên Kết Thao Tác Trực Tiếp (Direct Links Directory)](#6-danh-mục-liên-kết-thao-tác-trực-tiếp-direct-links-directory)
-- [7. Các Công Cụ GUI Cho Người Mới (Không Cần Gõ Lệnh)](#7-các-công-cụ-gui-cho-người-mới-không-cần-gõ-lệnh)
+- [7. Cỗ Máy Thời Gian: Kỹ Thuật Lùi Về Bất Kỳ Phiên Bản Nào (Time Travel)](#7-cỗ-máy-thời-gian-kỹ-thuật-lùi-về-bất-kỳ-phiên-bản-nào-time-travel)
+- [8. Các Công Cụ GUI Cho Người Mới (Không Cần Gõ Lệnh)](#8-các-công-cụ-gui-cho-người-mới-không-cần-gõ-lệnh)
 
 ---
 
@@ -267,7 +268,47 @@ Dưới đây là danh sách các đường link truy cập nhanh vào từng tr
 
 ---
 
-## 7. Các Công Cụ GUI Cho Người Mới (Không Cần Gõ Lệnh)
+## 7. Cỗ Máy Thời Gian: Kỹ Thuật Lùi Về Bất Kỳ Phiên Bản Nào (Time Travel)
+
+Một trong những sức mạnh cốt lõi của Git là khả năng **quay ngược cỗ máy thời gian** về bất kỳ phiên bản nào bạn từng commit trong quá khứ:
+
+### 1. Chỉ muốn xem lại và chạy thử quá khứ (Không đổi hiện tại)
+```bash
+# Đưa toàn bộ file về trạng thái của commit cũ (Detached HEAD)
+git checkout a1b2c3d
+# Hoặc Git hiện đại:
+git switch --detach a1b2c3d
+
+# Quay lại hiện tại sau khi xem xong:
+git switch main
+```
+
+### 2. Hoàn tác an toàn khi làm việc nhóm (Khuyên dùng)
+```bash
+# Tạo commit mới để đảo ngược lại commit lỗi mà không xóa lịch sử
+git revert a1b2c3d
+```
+
+### 3. Hủy bỏ commit khi làm việc cá nhân
+```bash
+# Lùi 1 commit, giữ nguyên code đã sửa trong Staging
+git reset --soft HEAD~1
+
+# Lùi 1 commit, xóa sạch toàn bộ code sửa đổi (cẩn thận!)
+git reset --hard HEAD~1
+```
+
+### 4. Hộp đen máy bay cứu sinh: `git reflog`
+Nếu bạn lỡ tay chạy `git reset --hard` làm mất commit quan trọng, hãy gõ:
+```bash
+git reflog
+# Tìm mã hash của commit bị mất và hồi sinh:
+git reset --hard HEAD@{1}
+```
+
+---
+
+## 8. Các Công Cụ GUI Cho Người Mới (Không Cần Gõ Lệnh)
 
 Nếu bạn không quen sử dụng màn hình dòng lệnh màu đen (*Terminal*), hãy dùng các phần mềm giao diện đồ họa trực quan sau:
 

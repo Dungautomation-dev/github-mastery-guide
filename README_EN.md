@@ -43,7 +43,8 @@
   - [Git Aliases for 5x typing speed](#git-aliases-for-5x-typing-speed)
   - [Instant VS Code Web editor in 1 second](#instant-vs-code-web-editor-in-1-second)
 - [6. Direct Action Links Directory](#6-direct-action-links-directory)
-- [7. Recommended GUI Clients for Beginners](#7-recommended-gui-clients-for-beginners)
+- [7. The Git Time Machine: Rolling Back to Any Previous Version](#7-the-git-time-machine-rolling-back-to-any-previous-version)
+- [8. Recommended GUI Clients for Beginners](#8-recommended-gui-clients-for-beginners)
 
 ---
 
@@ -212,6 +213,59 @@ Quick shortcuts to key GitHub destinations:
 | 📝 **Create Gist Code Snippet** | [gist.github.com](https://gist.github.com) |
 | 🛡️ **Two-Factor Authentication (2FA)** | [github.com/settings/security](https://github.com/settings/security) |
 | 🌐 **Official GitHub Documentation** | [docs.github.com](https://docs.github.com) |
+
+---
+
+## 7. The Git Time Machine: Rolling Back to Any Previous Version
+
+One of Git's core powers is the ability to travel back to any historical snapshot without permanent loss:
+
+### 1. Inspecting the Past (Detached HEAD)
+```bash
+git checkout a1b2c3d
+# Or modern Git:
+git switch --detach a1b2c3d
+
+# Return to present:
+git switch main
+```
+
+### 2. Safe Rollback for Teams (git revert)
+```bash
+# Creates an inverse commit without rewriting shared branch history
+git revert a1b2c3d
+```
+
+### 3. Local Rewind (git reset)
+```bash
+# Rewind 1 commit, keep changes staged
+git reset --soft HEAD~1
+
+# Rewind 1 commit, completely discard recent uncommitted changes
+git reset --hard HEAD~1
+```
+
+### 4. The Ultimate Lifesaver: `git reflog`
+Accidentally ran `git reset --hard`? Recover any lost commit:
+```bash
+git reflog
+# Find the lost commit SHA and restore:
+git reset --hard HEAD@{1}
+```
+
+---
+
+## 8. Recommended GUI Clients for Beginners
+
+If you prefer graphical interfaces over the terminal command line, try these intuitive GUI tools:
+
+1. **[GitHub Desktop](https://desktop.github.com/)** *(Recommended)*:
+   - Official 100% free software from GitHub.
+   - Drag-and-drop interface, 1-click commit & push.
+2. **[GitLens (VS Code Extension)](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)**:
+   - Visual git blame line annotations, inline revision navigation.
+3. **[GitKraken](https://www.gitkraken.com/)**:
+   - Beautiful visual commit branch graph, drag-and-drop merging.
 
 ---
 

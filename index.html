@@ -89,7 +89,7 @@
       <button class="tab-btn active" data-tab="handbook" onclick="switchTab('handbook')" role="tab" aria-selected="true">
         <i class="fa-solid fa-book-open"></i>
         <span data-lang-vi="Giáo Trình" data-lang-en="Handbook">Giáo Trình</span>
-        <span class="tab-badge">8 Chương</span>
+        <span class="tab-badge">9 Chương</span>
       </button>
       <button class="tab-btn" data-tab="dictionary" onclick="switchTab('dictionary')" role="tab" aria-selected="false">
         <i class="fa-solid fa-spell-check"></i>
@@ -165,6 +165,7 @@
               <li><a href="#chap-6" class="toc-link" onclick="scrollToChapter('chap-6'); return false;">6. Quy Trình Pull Request &amp; Code Review</a></li>
               <li><a href="#chap-7" class="toc-link" onclick="scrollToChapter('chap-7'); return false;">7. Tự Động Hóa CI/CD Với GitHub Actions</a></li>
               <li><a href="#chap-8" class="toc-link" onclick="scrollToChapter('chap-8'); return false;">8. Bảo Mật Token (PAT), SSH &amp; Phím Tắt</a></li>
+              <li><a href="#chap-9" class="toc-link" onclick="scrollToChapter('chap-9'); return false;">9. Cỗ Máy Thời Gian: Lùi Mọi Phiên Bản</a></li>
             </ul>
           </nav>
         </aside>
@@ -562,6 +563,130 @@ chmod +x ./scripts/git-setup-aliases.sh &amp;&amp; ./scripts/git-setup-aliases.s
 
                 <h4>2. GitHub Web Shortcuts</h4>
                 <p>Press <code>.</code> (period) to open the full web-based VS Code environment instantly on any repository. Press <code>t</code> to open file finder.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Chapter 9 -->
+          <article class="tutorial-chapter" id="chap-9">
+            <span class="chapter-badge">Chương 9</span>
+            <h3 class="chapter-title" data-lang-vi="Cỗ Máy Thời Gian: Kỹ Thuật Lùi Về Bất Kỳ Phiên Bản Nào" data-lang-en="The Git Time Machine: Rolling Back to Any Previous Version">Cỗ Máy Thời Gian: Kỹ Thuật Lùi Về Bất Kỳ Phiên Bản Nào</h3>
+            
+            <div class="chapter-body">
+              <div data-lang-vi>
+                <p>Một trong những nỗi sợ lớn nhất của người mới học lập trình là: <em>"Lỡ tôi viết code sai làm hỏng cả dự án, hoặc lỡ bấm nhầm xóa mất code thì có lấy lại được bản hôm qua không?"</em></p>
+
+                <div class="callout tip">
+                  <i class="fa-solid fa-clock-rotate-left" style="font-size: 1.25rem;"></i>
+                  <div>
+                    <strong>Câu trả lời khẳng định 100%: CÓ!</strong> Đó chính là lý do tối thượng mà Git ra đời. Một khi bạn đã commit, Git đóng vai trò như một <strong>"cỗ máy thời gian"</strong> ghi lại từng tọa độ lịch sử. Bạn có thể quay về bất kỳ thời khắc nào trong quá khứ chỉ bằng 1 câu lệnh!
+                  </div>
+                </div>
+
+                <h4>1. Kịch bản 1: "Tôi chỉ muốn xem lại quá khứ, không làm xáo trộn hiện tại"</h4>
+                <p>Bạn muốn đưa toàn bộ thư mục trên máy tính quay ngược về trạng thái của một commit cũ để kiểm tra, chạy thử hoặc đọc lại logic cũ:</p>
+                <div class="code-snippet-box">
+                  <pre><code># Lấy mã SHA (ví dụ: a1b2c3d) bằng lệnh git log --oneline
+git checkout a1b2c3d
+
+# Hoặc dùng cú pháp Git đời mới:
+git switch --detach a1b2c3d</code></pre>
+                </div>
+                <div class="callout info">
+                  <i class="fa-solid fa-plane-departure"></i>
+                  <div>
+                    <strong>Hiện tượng "Detached HEAD" (Đầu rời là gì?):</strong> Lúc này con trỏ HEAD đang bay lơ lửng trên cỗ máy thời gian để soi lại quá khứ mà không gắn vào nhánh nào. Toàn bộ file trong VS Code của bạn sẽ lập tức biến hình thành phiên bản cũ ngày đó.<br>
+                    • Muốn trở về thực tại ngay lập tức: <code>git switch main</code><br>
+                    • Muốn phát triển tiếp một nhánh mới từ mốc quá khứ này: <code>git checkout -b nhanh-moi-tu-qua-khu</code>
+                  </div>
+                </div>
+
+                <h4>2. Kịch bản 2: Hoàn tác an toàn khi làm việc nhóm (git revert)</h4>
+                <p>Tính năng vừa tạo bị lỗi và đã lỡ <code>git push</code> lên GitHub. Để không làm gãy lịch sử của các đồng nghiệp khác, <strong>tuyệt đối không xóa commit</strong>, hãy dùng <code>git revert</code>:</p>
+                <div class="code-snippet-box">
+                  <pre><code>git revert a1b2c3d</code></pre>
+                </div>
+                <p><strong>Cơ chế ma thuật:</strong> Git sẽ tự động tạo ra một commit mới có nội dung đảo ngược hoàn toàn những gì commit <code>a1b2c3d</code> đã làm. Lịch sử code vẫn thẳng hàng, an toàn và minh bạch tuyệt đối!</p>
+
+                <h4>3. Kịch bản 3: Hủy bỏ commit khi làm việc cá nhân (git reset)</h4>
+                <p>Khi bạn chỉ đang code một mình trên máy cá nhân và muốn "xóa sổ" các commit vừa tạo để làm lại từ đầu:</p>
+                <table style="width:100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9rem;">
+                  <thead>
+                    <tr style="border-bottom: 2px solid var(--border-color); text-align: left;">
+                      <th style="padding: 10px;">Lệnh Reset</th>
+                      <th style="padding: 10px;">Tác động đến Code</th>
+                      <th style="padding: 10px;">Khi nào nên dùng?</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                      <td style="padding: 10px; color: var(--cyan-accent); font-weight:700;">git reset --soft HEAD~1</td>
+                      <td style="padding: 10px;">Hủy commit, nhưng giữ nguyên toàn bộ code trong Staging Area</td>
+                      <td style="padding: 10px;">Khi muốn sửa lại lời nhắn commit hoặc gom thêm file vào commit trước</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                      <td style="padding: 10px; color: var(--gold-accent); font-weight:700;">git reset --mixed HEAD~1</td>
+                      <td style="padding: 10px;">Hủy commit, đưa code về trạng thái chưa Stage (mặc định)</td>
+                      <td style="padding: 10px;">Khi muốn lọc lại từng file để commit riêng rẽ</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 10px; color: var(--red-accent); font-weight:700;">git reset --hard HEAD~1</td>
+                      <td style="padding: 10px;">Xóa sạch toàn bộ code sửa đổi, quay về y hệt phiên bản trước</td>
+                      <td style="padding: 10px;">Khi bạn viết thử nghiệm hỏng bét và muốn vứt bỏ hoàn toàn code lỗi</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h4>4. Phao cứu sinh tối thượng: Hộp đen "git reflog"</h4>
+                <p>Nếu bạn lỡ tay chạy <code>git reset --hard</code> làm mất cả những commit quan trọng thì sao? Đừng hoảng loạn! Git có một chiếc <strong>hộp đen máy bay</strong> lưu lại mọi bước chân:</p>
+                <div class="code-snippet-box">
+                  <pre><code># Xem lại toàn bộ lịch sử di chuyển của HEAD trong 30-90 ngày qua
+git reflog
+
+# Kết quả mẫu:
+# 7b8c9d0 HEAD@{0}: reset: moving to HEAD~1
+# a1b2c3d HEAD@{1}: commit: feat: chuc nang cuc ky quan trong (đã lỡ bị xóa!)
+
+# Hồi sinh commit bị xóa nhầm trong 1 giây:
+git reset --hard HEAD@{1}</code></pre>
+                </div>
+
+                <h4>5. Lùi về phiên bản cũ trực tiếp trên giao diện web GitHub</h4>
+                <p>Không cần gõ bất kỳ dòng lệnh nào, bạn vẫn có thể tải lại bản code ngày xưa ngay trên trình duyệt:</p>
+                <ol style="padding-left: 20px; margin-bottom: 16px; color: #cbd5e1; display:flex; flex-direction:column; gap:8px;">
+                  <li>Vào trang chủ Repository trên GitHub, bấm vào dòng chữ <strong>Commits</strong>.</li>
+                  <li>Tìm đến phiên bản trong quá khứ bạn muốn lấy lại.</li>
+                  <li>Bấm vào biểu tượng dấu <strong><code>&lt; &gt;</code></strong> (<em>Browse repository at this point in the history</em>) ở góc phải commit.</li>
+                  <li>GitHub sẽ hiển thị toàn bộ kho code y như ngày tháng đó! Bấm nút xanh <strong>Code ➔ Download ZIP</strong> để tải trọn gói về máy tính.</li>
+                </ol>
+              </div>
+
+              <div data-lang-en style="display:none;">
+                <p>One of the greatest superpowers of Git is its ability to act as a <strong>Time Machine</strong>. Once committed, your code snapshots are preserved permanently.</p>
+
+                <h4>1. Inspecting the Past (Detached HEAD)</h4>
+                <div class="code-snippet-box">
+                  <pre><code>git checkout a1b2c3d
+# Or modern Git:
+git switch --detach a1b2c3d
+# Return to current:
+git switch main</code></pre>
+                </div>
+
+                <h4>2. Safe Rollback for Teams (git revert)</h4>
+                <p>Creates an inverse commit without rewriting previous history:</p>
+                <div class="code-snippet-box">
+                  <pre><code>git revert a1b2c3d</code></pre>
+                </div>
+
+                <h4>3. Local History Rewind (git reset)</h4>
+                <p>Use <code>--soft</code>, <code>--mixed</code>, or <code>--hard</code> depending on whether you want to preserve staged files or completely discard local changes.</p>
+
+                <h4>4. The Ultimate Lifesaver: git reflog</h4>
+                <p>Recovers accidentally deleted commits and branches from Git's internal safety ledger.</p>
+
+                <h4>5. Browsing Old Commits on GitHub Web</h4>
+                <p>Visit repository commits history, click the <code>&lt; &gt;</code> icon next to any past commit, and download the full ZIP snapshot directly.</p>
               </div>
             </div>
           </article>
