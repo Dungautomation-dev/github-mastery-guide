@@ -7,7 +7,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/GitHub-Mastery%20Guide-24292e?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Guide">
-  <a href="https://dungauto.github.io/github-mastery-guide/"><img src="https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-00e5ff?style=for-the-badge&logo=githubpages&logoColor=black" alt="Live Demo"></a>
+  <a href="https://dungautomation-dev.github.io/github-mastery-guide/"><img src="https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-00e5ff?style=for-the-badge&logo=githubpages&logoColor=black" alt="Live Demo"></a>
   <img src="https://img.shields.io/badge/Level-Beginner%20to%20Advanced-blue?style=for-the-badge" alt="Level">
   <img src="https://img.shields.io/badge/Tools-Git%20CLI%20%7C%20GitHub%20Web%20%7C%20VS%20Code-orange?style=for-the-badge" alt="Tools">
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
@@ -15,7 +15,7 @@
 
 <p align="center">
   🌐 <strong>Explore the interactive handbook and live visualizer at:</strong><br>
-  👉 <a href="https://dungauto.github.io/github-mastery-guide/"><strong>https://dungauto.github.io/github-mastery-guide/</strong></a>
+  👉 <a href="https://dungautomation-dev.github.io/github-mastery-guide/"><strong>https://dungautomation-dev.github.io/github-mastery-guide/</strong></a>
 </p>
 
 <p align="center">
@@ -50,7 +50,7 @@
 
 ## 1. Demystifying "GitHub Projects" — What is it?
 
-When visiting your GitHub profile (e.g., `https://github.com/Dungauto`), you will see the **`Projects`** tab placed right beside `Repositories`.
+When visiting your GitHub profile (e.g., `https://github.com/Dungautomation-dev`), you will see the **`Projects`** tab placed right beside `Repositories`.
 
 ### The core essence of GitHub Projects
 **GitHub Projects** (also known as *Projects v2*) is an integrated **project management, task tracking, and software roadmapping tool** built natively into GitHub, functioning similarly to **Trello, Jira, or Notion**.
@@ -126,7 +126,7 @@ Beginners frequently confuse Git with GitHub:
 
 ```bash
 # 1. Clone a remote repository to your local machine
-git clone https://github.com/Dungauto/github-mastery-guide.git
+git clone https://github.com/Dungautomation-dev/github-mastery-guide.git
 
 # 2. Check changed files
 git status -s
@@ -203,7 +203,7 @@ Quick shortcuts to key GitHub destinations:
 | Target Destination | Direct URL |
 | :--- | :--- |
 | 🆕 **Create New Repository** | [github.com/new](https://github.com/new) |
-| 📋 **Manage / Create Projects** | [github.com/new/project](https://github.com/new/project) or [github.com/users/Dungauto/projects](https://github.com/users/Dungauto/projects) |
+| 📋 **Manage / Create Projects** | [github.com/new/project](https://github.com/new/project) or [github.com/users/Dungautomation-dev/projects](https://github.com/users/Dungautomation-dev/projects) |
 | 🔑 **Create Personal Access Token (Classic)** | [github.com/settings/tokens](https://github.com/settings/tokens) |
 | 🔒 **Create Fine-grained Access Token** | [github.com/settings/personal-access-tokens/new](https://github.com/settings/personal-access-tokens/new) |
 | 💻 **Manage SSH Keys** | [github.com/settings/keys](https://github.com/settings/keys) |
@@ -271,6 +271,6 @@ If you prefer graphical interfaces over the terminal command line, try these int
 
 ## 👨‍💻 Author & License
 
-- **Author**: [Dũng Automation](https://github.com/Dungauto)
+- **Author**: [Dũng Automation](https://github.com/Dungautomation-dev)
 - **Email**: dungautomation@gmail.com
 - **License**: Released under the [MIT License](LICENSE).

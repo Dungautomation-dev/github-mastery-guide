@@ -7,7 +7,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/GitHub-Mastery%20Guide-24292e?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Guide">
-  <a href="https://dungauto.github.io/github-mastery-guide/"><img src="https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-00e5ff?style=for-the-badge&logo=githubpages&logoColor=black" alt="Live Demo"></a>
+  <a href="https://dungautomation-dev.github.io/github-mastery-guide/"><img src="https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-00e5ff?style=for-the-badge&logo=githubpages&logoColor=black" alt="Live Demo"></a>
   <img src="https://img.shields.io/badge/Level-Cơ%20Bản%20đến%20Chuyên%20Sâu-blue?style=for-the-badge" alt="Level">
   <img src="https://img.shields.io/badge/Tools-Git%20CLI%20%7C%20GitHub%20Web%20%7C%20VS%20Code-orange?style=for-the-badge" alt="Tools">
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
@@ -15,7 +15,7 @@
 
 <p align="center">
   🌐 <strong>Khám phá phiên bản sách tương tác & mô phỏng nhánh trực quan tại:</strong><br>
-  👉 <a href="https://dungauto.github.io/github-mastery-guide/"><strong>https://dungauto.github.io/github-mastery-guide/</strong></a>
+  👉 <a href="https://dungautomation-dev.github.io/github-mastery-guide/"><strong>https://dungautomation-dev.github.io/github-mastery-guide/</strong></a>
 </p>
 
 <p align="center">
@@ -50,7 +50,7 @@
 
 ## 1. Giải Mã Tính Năng "Projects" Trên GitHub Là Gì?
 
-Khi vào trang cá nhân GitHub của bạn (ví dụ: `https://github.com/Dungauto`), bạn sẽ thấy tab **`Projects`** nằm ngay cạnh `Repositories`.
+Khi vào trang cá nhân GitHub của bạn (ví dụ: `https://github.com/Dungautomation-dev`), bạn sẽ thấy tab **`Projects`** nằm ngay cạnh `Repositories`.
 
 ### Bản chất của GitHub Projects
 **GitHub Projects** (còn gọi là *Projects v2*) là công cụ **quản lý dự án, theo dõi tiến độ công việc và lập kế hoạch phát triển phần mềm** được GitHub tích hợp sẵn, có chức năng tương tự như **Trello, Jira hay Notion**.
@@ -138,7 +138,7 @@ Mọi thao tác hàng ngày với Git thực tế chỉ xoay quanh **5 câu lệ
 
 ```bash
 # 1. Tải dự án từ GitHub về máy
-git clone https://github.com/Dungauto/github-mastery-guide.git
+git clone https://github.com/Dungautomation-dev/github-mastery-guide.git
 
 # 2. Kiểm tra xem mình vừa sửa những file nào
 git status -s
@@ -240,9 +240,9 @@ chmod +x ./scripts/git-setup-aliases.sh
 ### Mở code bằng VS Code Web trong 1 giây
 
 Chỉ cần đổi tên miền trên thanh địa chỉ trình duyệt:
-- Từ: `https://github.com/Dungauto/github-mastery-guide`
-- Đổi chữ `github.com` thành `github.dev`: ➡️ `https://github.dev/Dungauto/github-mastery-guide`
-- Hoặc đổi thành `github1s.com`: ➡️ `https://github1s.com/Dungauto/github-mastery-guide`
+- Từ: `https://github.com/Dungautomation-dev/github-mastery-guide`
+- Đổi chữ `github.com` thành `github.dev`: ➡️ `https://github.dev/Dungautomation-dev/github-mastery-guide`
+- Hoặc đổi thành `github1s.com`: ➡️ `https://github1s.com/Dungautomation-dev/github-mastery-guide`
 
 Toàn bộ kho code sẽ được nạp vào giao diện Visual Studio Code với đầy đủ cây thư mục, tô màu cú pháp và tìm kiếm cực nhanh!
 
@@ -255,7 +255,7 @@ Dưới đây là danh sách các đường link truy cập nhanh vào từng tr
 | Thao tác muốn thực hiện | Liên kết trực tiếp trên GitHub |
 | :--- | :--- |
 | 🆕 **Tạo Repository mới** | [github.com/new](https://github.com/new) |
-| 📋 **Quản lý / Tạo Project mới** | [github.com/new/project](https://github.com/new/project) hoặc [github.com/users/Dungauto/projects](https://github.com/users/Dungauto/projects) |
+| 📋 **Quản lý / Tạo Project mới** | [github.com/new/project](https://github.com/new/project) hoặc [github.com/users/Dungautomation-dev/projects](https://github.com/users/Dungautomation-dev/projects) |
 | 🔑 **Tạo Personal Access Token (Classic)** | [github.com/settings/tokens](https://github.com/settings/tokens) |
 | 🔒 **Tạo Fine-grained Access Token** | [github.com/settings/personal-access-tokens/new](https://github.com/settings/personal-access-tokens/new) |
 | 💻 **Cài đặt khóa SSH Keys** | [github.com/settings/keys](https://github.com/settings/keys) |
@@ -324,7 +324,7 @@ Nếu bạn không quen sử dụng màn hình dòng lệnh màu đen (*Terminal
 
 ## 👨‍💻 Tác Giả & Giấy Phép
 
-- **Tác giả**: [Dũng Automation](https://github.com/Dungauto)
+- **Tác giả**: [Dũng Automation](https://github.com/Dungautomation-dev)
 - **Email**: dungautomation@gmail.com
 - **Giấy phép**: Phát hành miễn phí theo giấy phép [MIT License](LICENSE).
 
