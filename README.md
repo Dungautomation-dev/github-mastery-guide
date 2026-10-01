@@ -7,9 +7,15 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/GitHub-Mastery%20Guide-24292e?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Guide">
+  <a href="https://dungauto.github.io/github-mastery-guide/"><img src="https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-00e5ff?style=for-the-badge&logo=githubpages&logoColor=black" alt="Live Demo"></a>
   <img src="https://img.shields.io/badge/Level-Cơ%20Bản%20đến%20Chuyên%20Sâu-blue?style=for-the-badge" alt="Level">
   <img src="https://img.shields.io/badge/Tools-Git%20CLI%20%7C%20GitHub%20Web%20%7C%20VS%20Code-orange?style=for-the-badge" alt="Tools">
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
+</p>
+
+<p align="center">
+  🌐 <strong>Khám phá phiên bản sách tương tác & mô phỏng nhánh trực quan tại:</strong><br>
+  👉 <a href="https://dungauto.github.io/github-mastery-guide/"><strong>https://dungauto.github.io/github-mastery-guide/</strong></a>
 </p>
 
 <p align="center">

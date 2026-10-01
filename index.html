@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Mastery Guide - Cẩm Nang Toàn Diện & Từ Điển Git Cho Lập Trình Viên</title>
+  <meta name="description" content="Khám phá toàn bộ hệ sinh thái Git & GitHub từ cơ bản đến nâng cao: Mô phỏng nhánh trực quan, từ điển lệnh, cẩm nang chi tiết và trạm phóng thao tác nhanh.">
+  <meta name="author" content="Dung Automation">
+  <meta name="theme-color" content="#080b12">
+
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="GitHub Mastery Guide - Cẩm Nang Làm Chủ GitHub">
+  <meta property="og:description" content="Trang hướng dẫn học Git & GitHub tương tác với mô phỏng nhánh trực quan, từ điển lệnh và các mẹo tối ưu thao tác x5 lần.">
+  <meta property="og:type" content="website">
+
+  <!-- External Stylesheets & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Top Reading Progress Indicator -->
+  <div id="reading-progress-bar" role="progressbar" aria-label="Reading progress"></div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand-box">
+        <div class="brand-icon">
+          <i class="fa-brands fa-github"></i>
+        </div>
+        <div>
+          <div class="brand-title">GitHub Mastery Guide</div>
+          <div class="brand-subtitle" data-lang-vi="Cẩm Nang Làm Chủ GitHub" data-lang-en="Developer Guide &amp; Dictionary">Cẩm Nang Làm Chủ GitHub</div>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#handbook" class="nav-link"><i class="fa-solid fa-book-open"></i> <span data-lang-vi="Giáo Trình" data-lang-en="Handbook">Giáo Trình</span></a></li>
+          <li><a href="#dictionary" class="nav-link"><i class="fa-solid fa-spell-check"></i> <span data-lang-vi="Từ Điển" data-lang-en="Dictionary">Từ Điển</span></a></li>
+          <li><a href="#visualizer" class="nav-link"><i class="fa-solid fa-code-branch"></i> <span data-lang-vi="Mô Phỏng Nhánh" data-lang-en="Git Tree">Mô Phỏng Nhánh</span></a></li>
+          <li><a href="#launcher" class="nav-link"><i class="fa-solid fa-rocket"></i> <span data-lang-vi="Trạm Phóng" data-lang-en="Launcher">Trạm Phóng</span></a></li>
+          <li><a href="#quiz" class="nav-link"><i class="fa-solid fa-graduation-cap"></i> <span data-lang-vi="Thử Thách" data-lang-en="Quiz">Thử Thách</span></a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="btn-lang-toggle" class="btn-lang" onclick="toggleLanguage()" title="Chuyển đổi ngôn ngữ / Switch language">🇺🇸 EN</button>
+        <a href="https://github.com/Dungauto/github-mastery-guide" target="_blank" rel="noopener noreferrer" class="btn-github-repo">
+          <i class="fa-brands fa-github"></i> <span>Repo</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Presentation Section -->
+  <section class="hero-wrapper">
+    <div class="hero-pill-badge">
+      <i class="fa-solid fa-wand-magic-sparkles"></i>
+      <span data-lang-vi="CẨM NANG TOÀN DIỆN CHO DEVELOPER" data-lang-en="COMPREHENSIVE DEVELOPER HANDBOOK">CẨM NANG TOÀN DIỆN CHO DEVELOPER</span>
+    </div>
+
+    <h1 class="hero-main-title">
+      <span data-lang-vi="Làm Chủ Git &amp; GitHub" data-lang-en="Master Git &amp; GitHub">Làm Chủ Git &amp; GitHub</span><br>
+      <span class="hero-gradient-text" data-lang-vi="Từ Cơ Bản Đến Chuyên Sâu" data-lang-en="From Zero To Hero">Từ Cơ Bản Đến Chuyên Sâu</span>
+    </h1>
+
+    <p class="hero-desc" data-lang-vi="Khám phá toàn bộ bản đồ Git, giải mã bí mật tính năng GitHub Projects, xem mô phỏng hoạt động nhánh trực quan và tra cứu thần tốc kho từ điển câu lệnh chuyên nghiệp." data-lang-en="Explore the entire Git &amp; GitHub ecosystem: understand GitHub Projects, visualize commit branch graphs in real-time, and search the interactive command dictionary.">
+      Khám phá toàn bộ bản đồ Git, giải mã bí mật tính năng GitHub Projects, xem mô phỏng hoạt động nhánh trực quan và tra cứu thần tốc kho từ điển câu lệnh chuyên nghiệp.
+    </p>
+
+    <div class="hero-cta-group">
+      <a href="#handbook" class="btn-primary">
+        <i class="fa-solid fa-book-bookmark"></i>
+        <span data-lang-vi="Bắt đầu học ngay" data-lang-en="Start Learning">Bắt đầu học ngay</span>
+      </a>
+      <a href="#dictionary" class="btn-secondary">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span data-lang-vi="Mở Từ Điển Lệnh" data-lang-en="Open Dictionary">Mở Từ Điển Lệnh</span>
+      </a>
+      <a href="#visualizer" class="btn-secondary">
+        <i class="fa-solid fa-code-fork"></i>
+        <span data-lang-vi="Mô phỏng nhánh" data-lang-en="Try Git Visualizer">Mô phỏng nhánh</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Interactive Git Visualizer Simulator Section -->
+  <section class="section-wrapper" id="visualizer">
+    <div class="section-header-center">
+      <div class="section-tag" data-lang-vi="Mô Phỏng Trực Quan" data-lang-en="Interactive Sandbox">Mô Phỏng Trực Quan</div>
+      <h2 class="section-title" data-lang-vi="Cây Lịch Sử Git (Git Branch Visualizer)" data-lang-en="Interactive Git Branch Simulator">Cây Lịch Sử Git (Git Branch Visualizer)</h2>
+      <p class="section-subtitle" data-lang-vi="Bấm các câu lệnh bên dưới để tận mắt chứng kiến con trỏ HEAD, nhánh và commit di chuyển như thế nào trong lòng Git!" data-lang-en="Click buttons below to watch how Git commits, branches, HEAD, and merge operations behave under the hood in real-time!">
+        Bấm các câu lệnh bên dưới để tận mắt chứng kiến con trỏ HEAD, nhánh và commit di chuyển như thế nào trong lòng Git!
+      </p>
+    </div>
+
+    <div class="visualizer-card">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span class="terminal-dot dot-red"></span>
+          <span class="terminal-dot dot-yellow"></span>
+          <span class="terminal-dot dot-green"></span>
+        </div>
+        <div class="terminal-title">git-branch-visualizer -- interactive sandbox</div>
+        <div style="width: 48px;"></div>
+      </div>
+
+      <div class="canvas-container">
+        <canvas id="git-canvas-tree"></canvas>
+      </div>
+
+      <div class="visualizer-controls">
+        <button class="sim-btn primary" onclick="gitVisualizer.createCommit()">
+          <i class="fa-solid fa-circle-plus"></i> git commit
+        </button>
+        <button class="sim-btn" onclick="gitVisualizer.createBranch('feature/login')">
+          <i class="fa-solid fa-code-branch"></i> git checkout -b feature/login
+        </button>
+        <button class="sim-btn" onclick="gitVisualizer.switchBranch('main')">
+          <i class="fa-solid fa-arrow-turn-down"></i> git switch main
+        </button>
+        <button class="sim-btn" onclick="gitVisualizer.switchBranch('feature/login')">
+          <i class="fa-solid fa-arrow-turn-up"></i> git switch feature/login
+        </button>
+        <button class="sim-btn" onclick="gitVisualizer.mergeBranch('feature/login')">
+          <i class="fa-solid fa-code-merge"></i> git merge feature/login
+        </button>
+        <button class="sim-btn danger" onclick="gitVisualizer.resetHard()">
+          <i class="fa-solid fa-rotate-left"></i> git reset --hard HEAD~1
+        </button>
+        <button class="sim-btn" onclick="gitVisualizer.resetToInitialState()" title="Khôi phục trạng thái ban đầu">
+          <i class="fa-solid fa-arrow-rotate-right"></i> Reset
+        </button>
+      </div>
+
+      <div class="visualizer-log-box">
+        <div class="log-cmd-line" id="visualizer-cmd-text">git status</div>
+        <div class="log-exp-line" id="visualizer-exp-text">
+          Sẵn sàng mô phỏng! Hãy bấm các nút bên trên để xem trực tiếp cấu trúc cây commit và con trỏ nhánh thay đổi theo thời gian thực.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dictionary Explorer Section -->
+  <section class="section-wrapper" id="dictionary">
+    <div class="section-header-center">
+      <div class="section-tag" data-lang-vi="Bách Khoa Toàn Thư" data-lang-en="Comprehensive Encyclopedia">Bách Khoa Toàn Thư</div>
+      <h2 class="section-title" data-lang-vi="Từ Điển Thuật Ngữ &amp; Câu Lệnh Git" data-lang-en="Git &amp; GitHub Command Dictionary">Từ Điển Thuật Ngữ &amp; Câu Lệnh Git</h2>
+      <p class="section-subtitle" data-lang-vi="Tra cứu nhanh cú pháp, tình huống áp dụng thực tế và mẹo xử lý chuyên nghiệp cho từng lệnh Git." data-lang-en="Quick reference for syntax, practical use cases, and tips for essential Git commands.">
+        Tra cứu nhanh cú pháp, tình huống áp dụng thực tế và mẹo xử lý chuyên nghiệp cho từng lệnh Git.
+      </p>
+    </div>
+
+    <div class="dict-toolbar">
+      <div class="search-input-wrapper">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input 
+          type="text" 
+          id="dict-search-input" 
+          class="dict-search-input" 
+          placeholder="Tìm lệnh hoặc khái niệm (rebase, projects, pr, stash...)"
+          oninput="handleSearch(this.value)"
+        >
+        <span class="search-key-badge">Ctrl + K</span>
+      </div>
+
+      <div class="dict-pills-row">
+        <button class="dict-pill active" onclick="filterDictionary('all', this)">
+          <span data-lang-vi="Tất cả" data-lang-en="All">Tất cả</span>
+        </button>
+        <button class="dict-pill" onclick="filterDictionary('basic', this)">
+          <span data-lang-vi="Lệnh Cơ Bản" data-lang-en="Basic Commands">Lệnh Cơ Bản</span>
+        </button>
+        <button class="dict-pill" onclick="filterDictionary('branch', this)">
+          <span data-lang-vi="Nhánh &amp; Merge" data-lang-en="Branch &amp; Merge">Nhánh &amp; Merge</span>
+        </button>
+        <button class="dict-pill" onclick="filterDictionary('undo', this)">
+          <span data-lang-vi="Hoàn Tác (Undo)" data-lang-en="Undo &amp; Stash">Hoàn Tác (Undo)</span>
+        </button>
+        <button class="dict-pill" onclick="filterDictionary('github', this)">
+          <span data-lang-vi="Hệ Sinh Thái GitHub" data-lang-en="GitHub Ecosystem">Hệ Sinh Thái GitHub</span>
+        </button>
+        <button class="dict-pill" onclick="filterDictionary('security', this)">
+          <span data-lang-vi="Bảo Mật &amp; Token" data-lang-en="Security &amp; Tokens">Bảo Mật &amp; Token</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Cards Grid populated dynamically by dictionary.js -->
+    <div class="dict-grid" id="dict-grid"></div>
+  </section>
+
+  <!-- Comprehensive Handbook / Tutorial Book Section -->
+  <section class="section-wrapper" id="handbook">
+    <div class="section-header-center">
+      <div class="section-tag" data-lang-vi="Giáo Trình Từng Bước" data-lang-en="Step-by-step Guide">Giáo Trình Từng Bước</div>
+      <h2 class="section-title" data-lang-vi="Cẩm Nang Làm Chủ Git &amp; GitHub Toàn Tập" data-lang-en="The Complete Git &amp; GitHub Handbook">Cẩm Nang Làm Chủ Git &amp; GitHub Toàn Tập</h2>
+      <p class="section-subtitle" data-lang-vi="Từ những khái niệm cốt lõi đến tư duy làm việc nhóm chuẩn quốc tế trong doanh nghiệp công nghệ." data-lang-en="From core fundamentals to enterprise-grade team collaboration workflows.">
+        Từ những khái niệm cốt lõi đến tư duy làm việc nhóm chuẩn quốc tế trong doanh nghiệp công nghệ.
+      </p>
+    </div>
+
+    <div class="tutorial-layout">
+      <!-- Sticky Sidebar Table of Contents -->
+      <aside class="tutorial-sidebar">
+        <div class="sidebar-title" data-lang-vi="Mục Lục Bài Học" data-lang-en="Table of Contents">Mục Lục Bài Học</div>
+        <nav>
+          <ul class="toc-nav">
+            <li><a href="#chap-1" class="toc-link" onclick="scrollToChapter('chap-1'); return false;">1. Khởi đầu &amp; Phân biệt Git vs GitHub</a></li>
+            <li><a href="#chap-2" class="toc-link" onclick="scrollToChapter('chap-2'); return false;">2. Ba Vùng Dữ Liệu (Working, Staging, Repo)</a></li>
+            <li><a href="#chap-3" class="toc-link" onclick="scrollToChapter('chap-3'); return false;">3. Bộ 5 Lệnh Thần Thánh Hàng Ngày</a></li>
+            <li><a href="#chap-4" class="toc-link" onclick="scrollToChapter('chap-4'); return false;">4. Quản Lý Nhánh &amp; Xử Lý Xung Đột (Conflict)</a></li>
+            <li><a href="#chap-5" class="toc-link" onclick="scrollToChapter('chap-5'); return false;">5. Giải Mã Bí Mật GitHub Projects</a></li>
+            <li><a href="#chap-6" class="toc-link" onclick="scrollToChapter('chap-6'); return false;">6. Quy Trình Pull Request &amp; Code Review</a></li>
+            <li><a href="#chap-7" class="toc-link" onclick="scrollToChapter('chap-7'); return false;">7. Tự Động Hóa CI/CD Với GitHub Actions</a></li>
+            <li><a href="#chap-8" class="toc-link" onclick="scrollToChapter('chap-8'); return false;">8. Bảo Mật Token (PAT), SSH &amp; Phím Tắt</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Main Reading Content Chapters -->
+      <main class="tutorial-content">
+
+        <!-- Chapter 1 -->
+        <article class="tutorial-chapter" id="chap-1">
+          <span class="chapter-badge">Chương 1</span>
+          <h3 class="chapter-title" data-lang-vi="Khởi Đầu &amp; Phân Biệt Git vs GitHub" data-lang-en="Getting Started: Git vs GitHub">Khởi Đầu &amp; Phân Biệt Git vs GitHub</h3>
+          
+          <div class="chapter-body">
+            <div data-lang-vi>
+              <p>Rất nhiều bạn mới làm quen với lập trình thường nhầm lẫn <strong>Git</strong> và <strong>GitHub</strong> là một thứ giống nhau. Thực chất, đây là hai công cụ hoàn toàn độc lập kết hợp với nhau tạo nên sức mạnh quản lý mã nguồn hiện đại:</p>
+              
+              <div class="callout info">
+                <i class="fa-solid fa-circle-info" style="font-size: 1.25rem;"></i>
+                <div>
+                  <strong>Git là gì?</strong> Git là một phần mềm mã nguồn mở chạy trực tiếp trên máy tính của bạn. Nhiệm vụ chính của nó là theo dõi và ghi lại lịch sử từng dòng code thay đổi. Bạn có thể sử dụng Git hoàn toàn offline mà không cần kết nối mạng.
+                </div>
+              </div>
+
+              <div class="callout tip">
+                <i class="fa-brands fa-github" style="font-size: 1.25rem;"></i>
+                <div>
+                  <strong>GitHub là gì?</strong> GitHub là một dịch vụ máy chủ đám mây trực tuyến thuộc tập đoàn Microsoft. GitHub đóng vai trò là "ngôi nhà chung" để bạn tải (push) các bản ghi lịch sử của Git từ máy tính cá nhân lên mạng, chia sẻ dự án cho cộng đồng hoặc làm việc nhóm cùng đồng nghiệp trên toàn thế giới.
+                </div>
+              </div>
+
+              <h4>Thiết lập danh tính đầu tiên</h4>
+              <p>Sau khi cài đặt Git, việc đầu tiên bạn phải làm là khai báo tên và email của mình để mọi commit sau này đều gắn liền với bạn:</p>
+              <div class="code-snippet-box">
+                <pre><code>git config --global user.name "Nguyen Van A"
+git config --global user.email "nguyenvana@example.com"</code></pre>
+              </div>
+            </div>
+
+            <div data-lang-en style="display:none;">
+              <p>Beginners often confuse <strong>Git</strong> and <strong>GitHub</strong> as the same entity. In reality, they are two separate technologies working in synergy:</p>
+
+              <div class="callout info">
+                <i class="fa-solid fa-circle-info" style="font-size: 1.25rem;"></i>
+                <div>
+                  <strong>What is Git?</strong> Git is an open-source Distributed Version Control System (DVCS) running locally on your workstation. It tracks changes in source files offline without requiring an internet connection.
+                </div>
+              </div>
+
+              <div class="callout tip">
+                <i class="fa-brands fa-github" style="font-size: 1.25rem;"></i>
+                <div>
+                  <strong>What is GitHub?</strong> GitHub is a cloud-based hosting platform (acquired by Microsoft) for Git repositories, enabling code collaboration, issues tracking, code reviews, and automated CI/CD workflows.
+                </div>
+              </div>
+
+              <h4>First-Time Identity Setup</h4>
+              <p>After installing Git, configure your name and email address globally:</p>
+              <div class="code-snippet-box">
+                <pre><code>git config --global user.name "Your Name"
+git config --global user.email "you@example.com"</code></pre>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Chapter 2 -->
+        <article class="tutorial-chapter" id="chap-2">
+          <span class="chapter-badge">Chương 2</span>
+          <h3 class="chapter-title" data-lang-vi="Vòng Đời 3 Vùng Dữ Liệu Git (3 States)" data-lang-en="The Three States of Git">Vòng Đời 3 Vùng Dữ Liệu Git (3 States)</h3>
+          
+          <div class="chapter-body">
+            <div data-lang-vi>
+              <p>Để không bao giờ bị rối khi dùng Git, bạn chỉ cần nắm vững <strong>3 trạng thái cốt lõi</strong> mà file code của bạn di chuyển qua lại:</p>
+
+              <ol style="padding-left: 20px; margin-bottom: 20px; color: #cbd5e1; display:flex; flex-direction:column; gap:10px;">
+                <li><strong>1. Working Directory (Thư mục làm việc):</strong> Nơi bạn trực tiếp gõ code, tạo file mới hoặc xóa file trong VS Code. Git nhận diện các file này là <em>Untracked</em> hoặc <em>Modified</em>.</li>
+                <li><strong>2. Staging Area (Khu vực tập kết chuẩn bị):</strong> Nơi bạn chọn lọc những thay đổi nào đã sẵn sàng để đóng gói. Dùng lệnh <code>git add .</code> để đưa file từ Working sang Staging.</li>
+                <li><strong>3. Repository / Commit History (.git):</strong> Nơi các bức ảnh chụp nhanh (snapshot) được lưu vĩnh viễn vào cơ sở dữ liệu của Git sau khi bạn chạy <code>git commit</code>.</li>
+              </ol>
+
+              <div class="callout info">
+                <i class="fa-solid fa-camera"></i>
+                <div>
+                  <strong>Tại sao lại cần Staging Area?</strong> Staging Area giống như bàn đóng gói bưu phẩm. Bạn có thể sửa 10 file khác nhau, nhưng chỉ muốn đóng gói 3 file thuộc tính năng đăng nhập vào 1 commit độc lập, 7 file còn lại để vào commit sau!
+                </div>
+              </div>
+            </div>
+
+            <div data-lang-en style="display:none;">
+              <p>To master Git without confusion, you only need to understand the <strong>three main states</strong> that your files can reside in:</p>
+
+              <ol style="padding-left: 20px; margin-bottom: 20px; color: #cbd5e1; display:flex; flex-direction:column; gap:10px;">
+                <li><strong>1. Working Directory:</strong> The single checkout of one version of the project on your local filesystem where you actively write code.</li>
+                <li><strong>2. Staging Area (Index):</strong> A staging area file that stores information about what changes will go into your next commit.</li>
+                <li><strong>3. Git Directory (Repository):</strong> Where Git stores the permanent metadata and object database for your project via snapshots.</li>
+              </ol>
+            </div>
+          </div>
+        </article>
+
+        <!-- Chapter 3 -->
+        <article class="tutorial-chapter" id="chap-3">
+          <span class="chapter-badge">Chương 3</span>
+          <h3 class="chapter-title" data-lang-vi="Bộ 5 Lệnh Thần Thánh Hàng Ngày" data-lang-en="The 5 Essential Daily Commands">Bộ 5 Lệnh Thần Thánh Hàng Ngày</h3>
+          
+          <div class="chapter-body">
+            <div data-lang-vi>
+              <p>Trong hơn 90% thời gian làm việc hàng ngày của lập trình viên chuyên nghiệp, bạn chỉ cần lặp đi lặp lại <strong>5 câu lệnh thần thánh</strong> này:</p>
+
+              <div class="code-snippet-box">
+                <pre><code># 1. Tải kho code từ GitHub về máy tính
+git clone https://github.com/Dungauto/github-mastery-guide.git
+
+# 2. Kiểm tra xem mình vừa chỉnh sửa những file nào
+git status -s
+
+# 3. Đưa tất cả thay đổi vào khu vực Staging Area
+git add .
+
+# 4. Lưu lại mốc lịch sử kèm lời ghi chú rõ ràng
+git commit -m "feat: cap nhat giao dien moi"
+
+# 5. Đẩy toàn bộ commit từ máy tính lên GitHub
+git push origin main</code></pre>
+              </div>
+
+              <div class="callout tip">
+                <i class="fa-solid fa-lightbulb"></i>
+                <div>
+                  <strong>Quy ước viết lời nhắn commit chuẩn (Conventional Commits):</strong><br>
+                  • <code>feat:</code> Viết tính năng mới (ví dụ: <code>feat: them chuc nang dang nhap</code>)<br>
+                  • <code>fix:</code> Sửa lỗi (ví dụ: <code>fix: sua loi khong bam duoc nut gui</code>)<br>
+                  • <code>docs:</code> Cập nhật tài liệu (ví dụ: <code>docs: bo sung readme tieng anh</code>)
+                </div>
+              </div>
+            </div>
+
+            <div data-lang-en style="display:none;">
+              <p>More than 90% of your daily version control routines will revolve around these <strong>five core commands</strong>:</p>
+
+              <div class="code-snippet-box">
+                <pre><code># 1. Clone repository to your machine
+git clone https://github.com/Dungauto/github-mastery-guide.git
+
+# 2. Check workspace status
+git status -s
+
+# 3. Stage all modifications
+git add .
+
+# 4. Commit changes with a descriptive message
+git commit -m "feat: add user authentication form"
+
+# 5. Push commits to remote GitHub
+git push origin main</code></pre>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Chapter 4 -->
+        <article class="tutorial-chapter" id="chap-4">
+          <span class="chapter-badge">Chương 4</span>
+          <h3 class="chapter-title" data-lang-vi="Làm Chủ Nhánh (Branch) &amp; Xử Lý Conflict" data-lang-en="Mastering Branches &amp; Resolving Conflicts">Làm Chủ Nhánh (Branch) &amp; Xử Lý Conflict</h3>
+          
+          <div class="chapter-body">
+            <div data-lang-vi>
+              <div class="callout warning">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <div>
+                  <strong>Quy tắc vàng của lập trình viên:</strong> <em>Tuyệt đối không bao giờ code thẳng tính năng mới vào nhánh <code>main</code>!</em> Nhánh <code>main</code> phải luôn luôn là mã nguồn ổn định nhất để xuất bản lên production.
+                </div>
+              </div>
+
+              <p>Khi muốn làm một chức năng mới, hãy tạo một nhánh con riêng biệt:</p>
+              <div class="code-snippet-box">
+                <pre><code># Tạo và nhảy ngay sang nhánh mới
+git checkout -b feature/dark-mode
+
+# Code xong, lưu lại
+git add .
+git commit -m "feat: hoan thanh giao dien nen toi"
+
+# Quay lại nhánh chính và gộp code vào
+git checkout main
+git merge feature/dark-mode</code></pre>
+              </div>
+
+              <h4>Xung đột mã nguồn (Merge Conflict) là gì?</h4>
+              <p>Xung đột xảy ra khi <strong>cả hai nhánh cùng sửa một dòng code trong cùng một file</strong> nhưng với nội dung khác nhau. Khi merge, Git sẽ dừng lại và đánh dấu các mốc như sau trong file:</p>
+
+              <div class="code-snippet-box">
+                <pre><code><<<<<<< HEAD (Code hiện tại ở nhánh main)
+const theme = "light";
+=======
+const theme = "dark";
+>>>>>>> feature/dark-mode (Code từ nhánh đang gộp vào)</code></pre>
+              </div>
+
+              <p><strong>Cách giải quyết:</strong> Bạn mở file đó trong VS Code, bấm vào nút <em>Accept Current Change</em> (giữ code main) hoặc <em>Accept Incoming Change</em> (lấy code nhánh con), xóa các ký tự đánh dấu đi, rồi chạy <code>git add .</code> và <code>git commit</code> để hoàn tất merge!</p>
+            </div>
+
+            <div data-lang-en style="display:none;">
+              <p>Branches allow you to develop features, fix bugs, or safely experiment with new ideas without touching production code in the <code>main</code> branch.</p>
+
+              <h4>Resolving Merge Conflicts</h4>
+              <p>A merge conflict occurs when competing changes are made to the same lines of the same file on two different branches. Git halts the merge and injects conflict markers (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>) for manual review.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Chapter 5 -->
+        <article class="tutorial-chapter" id="chap-5">
+          <span class="chapter-badge">Chương 5</span>
+          <h3 class="chapter-title" data-lang-vi="Giải Mã Bí Mật Tính Năng GitHub Projects" data-lang-en="Decoding GitHub Projects (Projects v2)">Giải Mã Bí Mật Tính Năng GitHub Projects</h3>
+          
+          <div class="chapter-body">
+            <div data-lang-vi>
+              <p>Khi vào trang cá nhân GitHub (ví dụ: <code>https://github.com/Dungauto</code>), bạn sẽ thấy tab <strong><code>Projects</code></strong> nằm ngay cạnh Repositories.</p>
+
+              <div class="callout tip">
+                <i class="fa-solid fa-table-columns"></i>
+                <div>
+                  <strong>GitHub Projects là gì?</strong> GitHub Projects (Projects v2) là công cụ quản lý tiến độ công việc, lập kế hoạch phát triển và điều phối task tương tự như <strong>Trello, Jira hay Notion</strong>, nhưng được tích hợp 100% bản địa vào hệ sinh thái GitHub!
+                </div>
+              </div>
+
+              <h4>So sánh bộ 3: Repository vs Issue vs Project</h4>
+              <table style="width:100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9rem;">
+                <thead>
+                  <tr style="border-bottom: 2px solid var(--border-color); text-align: left;">
+                    <th style="padding: 10px;">Thành phần</th>
+                    <th style="padding: 10px;">Vai trò thực tế</th>
+                    <th style="padding: 10px;">Ví dụ đời thường</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom: 1px solid var(--border-color);">
+                    <td style="padding: 10px; color: var(--cyan-accent); font-weight:700;">Repository</td>
+                    <td style="padding: 10px;">Chứa code, file và thư mục thực tế</td>
+                    <td style="padding: 10px;">Thư mục dự án trong ổ cứng</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid var(--border-color);">
+                    <td style="padding: 10px; color: var(--purple-accent); font-weight:700;">Issue</td>
+                    <td style="padding: 10px;">Mô tả một task hoặc lỗi cần sửa</td>
+                    <td style="padding: 10px;">Tờ giấy ghi chú dán tường (Post-it)</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px; color: var(--gold-accent); font-weight:700;">Projects</td>
+                    <td style="padding: 10px;">Bảng điều phối gom toàn bộ Issues lại để theo dõi tiến độ</td>
+                    <td style="padding: 10px;">Bảng trắng Kanban treo tường gom các tờ giấy note</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h4>3 Chế độ hiển thị quyền lực</h4>
+              <ul style="padding-left: 20px; margin-bottom: 16px; color: #cbd5e1; display:flex; flex-direction:column; gap:8px;">
+                <li><strong>Board (Kanban):</strong> Kéo thả trực quan giữa các cột: <code>Todo</code> ➡️ <code>In Progress</code> ➡️ <code>Done</code>.</li>
+                <li><strong>Table:</strong> Bảng tính dạng Notion/Excel hiển thị người phụ trách, độ ưu tiên (Priority), ngày đến hạn.</li>
+                <li><strong>Roadmap:</strong> Biểu đồ Gantt trực quan thời gian triển khai của từng tính năng lớn (Epic).</li>
+              </ul>
+            </div>
+
+            <div data-lang-en style="display:none;">
+              <p><strong>GitHub Projects</strong> is an adaptable, flexible tool for planning and tracking work on GitHub, functioning like native Jira, Trello, or Linear.</p>
+
+              <h4>Project Views</h4>
+              <p>Toggle between Kanban Board, Spreadsheet Table, and Gantt Roadmap views to organize issues across multiple repositories seamlessly.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Chapter 6 -->
+        <article class="tutorial-chapter" id="chap-6">
+          <span class="chapter-badge">Chương 6</span>
+          <h3 class="chapter-title" data-lang-vi="Quy Trình Pull Request (PR) &amp; Code Review" data-lang-en="Pull Requests &amp; Professional Code Reviews">Quy Trình Pull Request (PR) &amp; Code Review</h3>
+          
+          <div class="chapter-body">
+            <div data-lang-vi>
+              <p>Khi làm việc trong các công ty công nghệ hoặc đóng góp mã nguồn mở, bạn không bao giờ được tự ý push thẳng vào <code>main</code>. Quy trình chuẩn mực luôn tuân theo 4 bước:</p>
+
+              <ol style="padding-left: 20px; margin-bottom: 20px; color: #cbd5e1; display:flex; flex-direction:column; gap:10px;">
+                <li><strong>Bước 1:</strong> Tạo nhánh tính năng trên máy tính và push nhánh đó lên GitHub: <code>git push origin feature/login</code>.</li>
+                <li><strong>Bước 2:</strong> Vào GitHub bấm nút xanh <strong>"Compare &amp; pull request"</strong>.</li>
+                <li><strong>Bước 3:</strong> Viết mô tả chi tiết: Bạn đã thay đổi gì, tại sao thay đổi, và đính kèm ảnh chụp màn hình minh họa. Gắn thẻ trưởng nhóm (Tech Lead) vào ô <strong>Reviewers</strong>.</li>
+                <li><strong>Bước 4:</strong> Trưởng nhóm kiểm tra từng dòng code (Diff). Nếu hoàn hảo, họ sẽ bấm <strong>Approve</strong> và <strong>Merge pull request</strong> để hoàn tất!</li>
+              </ol>
+            </div>
+
+            <div data-lang-en style="display:none;">
+              <p>Pull Requests (PRs) let you tell others about changes you've pushed to a branch in a repository on GitHub. Once a PR is opened, you can discuss and review the potential changes with collaborators and add follow-up commits before your changes are merged into the base branch.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Chapter 7 -->
+        <article class="tutorial-chapter" id="chap-7">
+          <span class="chapter-badge">Chương 7</span>
+          <h3 class="chapter-title" data-lang-vi="Tự Động Hóa CI/CD Với GitHub Actions" data-lang-en="Automating CI/CD with GitHub Actions">Tự Động Hóa CI/CD Với GitHub Actions</h3>
+          
+          <div class="chapter-body">
+            <div data-lang-vi>
+              <p><strong>GitHub Actions</strong> cho phép bạn thiết lập các kịch bản chạy tự động trên máy chủ ảo của GitHub mỗi khi bạn <code>git push</code> hoặc mở Pull Request. Ví dụ:</p>
+
+              <ul style="padding-left: 20px; margin-bottom: 20px; color: #cbd5e1; display:flex; flex-direction:column; gap:8px;">
+                <li>Tự động kiểm tra lỗi cú pháp và chạy bài test (Unit Test).</li>
+                <li>Tự động đóng gói phần mềm và tạo file cài đặt <code>.exe</code> trên trang GitHub Releases.</li>
+                <li>Tự động build website và đẩy lên GitHub Pages.</li>
+              </ul>
+
+              <p>Mỗi kịch bản được lưu dưới dạng file YAML nằm trong thư mục <code>.github/workflows/</code>:</p>
+              <div class="code-snippet-box">
+                <pre><code>name: CI Pipeline
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install
+      - run: npm test</code></pre>
+              </div>
+            </div>
+
+            <div data-lang-en style="display:none;">
+              <p>GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline. You can create workflows that build and test every pull request to your repository, or deploy merged pull requests to production.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Chapter 8 -->
+        <article class="tutorial-chapter" id="chap-8">
+          <span class="chapter-badge">Chương 8</span>
+          <h3 class="chapter-title" data-lang-vi="Bảo Mật Token (PAT), SSH &amp; Phím Tắt Ma Thuật" data-lang-en="Security, Tokens, SSH &amp; Web Shortcuts">Bảo Mật Token (PAT), SSH &amp; Phím Tắt Ma Thuật</h3>
+          
+          <div class="chapter-body">
+            <div data-lang-vi>
+              <h4>1. Personal Access Token (PAT)</h4>
+              <p>Từ năm 2021, GitHub đã <strong>chấm dứt hoàn toàn việc dùng mật khẩu tài khoản để push code qua HTTPS</strong>. Thay vào đó, bạn phải sử dụng <strong>Personal Access Token (PAT)</strong> có tiền tố <code>ghp_...</code> làm mật khẩu xác thực.</p>
+
+              <div class="callout warning">
+                <i class="fa-solid fa-shield-halved"></i>
+                <div>
+                  <strong>Bảo vệ Token:</strong> Tuyệt đối không bao giờ commit token vào file code công khai! GitHub có robot quét tự động và sẽ ngay lập tức vô hiệu hóa token nếu phát hiện bị lộ trên internet.
+                </div>
+              </div>
+
+              <h4>2. Phím tắt ma thuật trên trình duyệt web GitHub</h4>
+              <p>Khi đang xem bất kỳ repository nào trên trình duyệt, hãy thử các phím tắt siêu tốc này:</p>
+              <table style="width:100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9rem;">
+                <thead>
+                  <tr style="border-bottom: 2px solid var(--border-color); text-align: left;">
+                    <th style="padding: 8px;">Phím bấm</th>
+                    <th style="padding: 8px;">Tác dụng ma thuật</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom: 1px solid var(--border-color);">
+                    <td style="padding: 8px; color: var(--cyan-accent); font-weight:700;">. (Dấu chấm)</td>
+                    <td style="padding: 8px;">Mở ngay trình soạn thảo Visual Studio Code trực tuyến (github.dev) ngay trong tab trình duyệt!</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid var(--border-color);">
+                    <td style="padding: 8px; color: var(--cyan-accent); font-weight:700;">t</td>
+                    <td style="padding: 8px;">Bật thanh tìm kiếm file thần tốc (Quick File Finder), gõ tên file là nhảy đến ngay.</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid var(--border-color);">
+                    <td style="padding: 8px; color: var(--cyan-accent); font-weight:700;">b</td>
+                    <td style="padding: 8px;">Xem Git Blame để biết ai đã viết từng dòng code vào ngày tháng nào.</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 8px; color: var(--cyan-accent); font-weight:700;">y</td>
+                    <td style="padding: 8px;">Tạo liên kết cố định (Permalink) của dòng code để chia sẻ cho đồng nghiệp.</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h4>3. Tối ưu tốc độ gõ lệnh với Git Aliases</h4>
+              <p>Bạn có thể kích hoạt bộ phím tắt rút gọn (<code>git s</code> thay cho <code>git status</code>, <code>git c</code> thay cho <code>git commit</code>) bằng script đính kèm:</p>
+              <div class="code-snippet-box">
+                <pre><code># Dành cho Windows PowerShell:
+./scripts/git-setup-aliases.ps1
+
+# Dành cho macOS / Linux Terminal:
+chmod +x ./scripts/git-setup-aliases.sh &amp;&amp; ./scripts/git-setup-aliases.sh</code></pre>
+              </div>
+            </div>
+
+            <div data-lang-en style="display:none;">
+              <h4>1. Personal Access Tokens (PAT)</h4>
+              <p>GitHub requires personal access tokens (beginning with <code>ghp_</code>) or SSH keys for git over HTTPS authentication. Never expose your token in public repositories.</p>
+
+              <h4>2. GitHub Web Shortcuts</h4>
+              <p>Press <code>.</code> (period) to open the full web-based VS Code environment instantly on any repository. Press <code>t</code> to open file finder.</p>
+            </div>
+          </div>
+        </article>
+
+      </main>
+    </div>
+  </section>
+
+  <!-- Quick Action Launcher Section -->
+  <section class="section-wrapper" id="launcher">
+    <div class="section-header-center">
+      <div class="section-tag" data-lang-vi="Thao Tác Trực Tiếp" data-lang-en="Direct Links">Thao Tác Trực Tiếp</div>
+      <h2 class="section-title" data-lang-vi="Trạm Phóng Thần Tốc GitHub" data-lang-en="GitHub Quick Action Launcher">Trạm Phóng Thần Tốc GitHub</h2>
+      <p class="section-subtitle" data-lang-vi="Bấm vào các thẻ liên kết bên dưới để nhảy thẳng tới các trang cài đặt quan trọng nhất trên GitHub." data-lang-en="Direct portal links to the most frequently used management pages on GitHub.">
+        Bấm vào các thẻ liên kết bên dưới để nhảy thẳng tới các trang cài đặt quan trọng nhất trên GitHub.
+      </p>
+    </div>
+
+    <div class="launcher-grid">
+      <a href="https://github.com/new" target="_blank" rel="noopener noreferrer" class="launcher-card">
+        <div class="launcher-icon"><i class="fa-solid fa-square-plus"></i></div>
+        <div class="launcher-info">
+          <h4 data-lang-vi="Tạo Kho Code Mới" data-lang-en="Create New Repo">Tạo Kho Code Mới</h4>
+          <p>github.com/new</p>
+        </div>
+      </a>
+
+      <a href="https://github.com/new/project" target="_blank" rel="noopener noreferrer" class="launcher-card">
+        <div class="launcher-icon"><i class="fa-solid fa-table-columns"></i></div>
+        <div class="launcher-info">
+          <h4 data-lang-vi="Tạo GitHub Project" data-lang-en="Create GitHub Project">Tạo GitHub Project</h4>
+          <p>github.com/new/project</p>
+        </div>
+      </a>
+
+      <a href="https://github.com/settings/tokens" target="_blank" rel="noopener noreferrer" class="launcher-card">
+        <div class="launcher-icon"><i class="fa-solid fa-key"></i></div>
+        <div class="launcher-info">
+          <h4 data-lang-vi="Tạo Token PAT (Classic)" data-lang-en="Personal Access Tokens">Tạo Token PAT (Classic)</h4>
+          <p>github.com/settings/tokens</p>
+        </div>
+      </a>
+
+      <a href="https://github.com/settings/tokens?type=beta" target="_blank" rel="noopener noreferrer" class="launcher-card">
+        <div class="launcher-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <div class="launcher-info">
+          <h4 data-lang-vi="Fine-grained Tokens" data-lang-en="Fine-grained Tokens">Fine-grained Tokens</h4>
+          <p>settings/tokens?type=beta</p>
+        </div>
+      </a>
+
+      <a href="https://github.com/settings/keys" target="_blank" rel="noopener noreferrer" class="launcher-card">
+        <div class="launcher-icon"><i class="fa-solid fa-fingerprint"></i></div>
+        <div class="launcher-info">
+          <h4 data-lang-vi="Quản Lý Khóa SSH &amp; GPG" data-lang-en="SSH &amp; GPG Keys">Quản Lý Khóa SSH &amp; GPG</h4>
+          <p>github.com/settings/keys</p>
+        </div>
+      </a>
+
+      <a href="https://github.com/trending" target="_blank" rel="noopener noreferrer" class="launcher-card">
+        <div class="launcher-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+        <div class="launcher-info">
+          <h4 data-lang-vi="Khám Phá Repo Thịnh Hành" data-lang-en="Trending Repositories">Khám Phá Repo Thịnh Hành</h4>
+          <p>github.com/trending</p>
+        </div>
+      </a>
+
+      <a href="https://github.com/Dungauto" target="_blank" rel="noopener noreferrer" class="launcher-card">
+        <div class="launcher-icon"><i class="fa-brands fa-github-alt"></i></div>
+        <div class="launcher-info">
+          <h4 data-lang-vi="Hồ Sơ Dung Automation" data-lang-en="Dung Automation Profile">Hồ Sơ Dung Automation</h4>
+          <p>github.com/Dungauto</p>
+        </div>
+      </a>
+
+      <a href="https://desktop.github.com/" target="_blank" rel="noopener noreferrer" class="launcher-card">
+        <div class="launcher-icon"><i class="fa-solid fa-desktop"></i></div>
+        <div class="launcher-info">
+          <h4 data-lang-vi="Tải GitHub Desktop GUI" data-lang-en="Download GitHub Desktop">Tải GitHub Desktop GUI</h4>
+          <p>desktop.github.com</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Interactive Quiz Section -->
+  <section class="section-wrapper" id="quiz">
+    <div class="section-header-center">
+      <div class="section-tag" data-lang-vi="Thử Thách Bản Thân" data-lang-en="Self-Assessment">Thử Thách Bản Thân</div>
+      <h2 class="section-title" data-lang-vi="Bài Trắc Nghiệm Kiểm Tra Kiến Thức" data-lang-en="Interactive Knowledge Quiz">Bài Trắc Nghiệm Kiểm Tra Kiến Thức</h2>
+      <p class="section-subtitle" data-lang-vi="Củng cố kiến thức vừa học qua 5 câu hỏi tình huống thực tế thường gặp khi dùng Git &amp; GitHub." data-lang-en="Reinforce your understanding with 5 practical real-world scenario questions.">
+        Củng cố kiến thức vừa học qua 5 câu hỏi tình huống thực tế thường gặp khi dùng Git &amp; GitHub.
+      </p>
+    </div>
+
+    <!-- Quiz container rendered dynamically by quiz.js -->
+    <div id="quiz-card-container"></div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div style="max-width: 1280px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 12px;">
+      <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; color: #fff;">
+        <i class="fa-brands fa-github" style="color: var(--cyan-accent); font-size: 1.25rem;"></i>
+        <span>GitHub Mastery Guide</span>
+      </div>
+      <p>
+        Xây dựng và duy trì bởi <a href="https://github.com/Dungauto" target="_blank" rel="noopener noreferrer">Dung Automation</a>. Mã nguồn mở phát hành theo giấy phép <a href="LICENSE" target="_blank">MIT License</a>.
+      </p>
+      <div style="display: flex; gap: 16px; font-size: 0.82rem;">
+        <a href="#handbook">Giáo Trình</a>
+        <a href="#dictionary">Từ Điển</a>
+        <a href="#visualizer">Mô Phỏng Nhánh</a>
+        <a href="#launcher">Trạm Phóng</a>
+        <a href="https://github.com/Dungauto/github-mastery-guide" target="_blank" rel="noopener noreferrer">Mã Nguồn Repo</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Global Toast Notification -->
+  <div id="global-toast" class="global-toast" role="status" aria-live="polite">
+    <i class="fa-solid fa-circle-check" style="color: var(--cyan-accent); margin-right: 8px;"></i>
+    <span id="toast-text"></span>
+  </div>
+
+  <!-- JavaScript Modules in Order -->
+  <script src="assets/js/dictionary.js"></script>
+  <script src="assets/js/visualizer.js"></script>
+  <script src="assets/js/quiz.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
