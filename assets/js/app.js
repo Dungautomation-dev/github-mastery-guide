@@ -61,6 +61,7 @@ window.addEventListener("DOMContentLoaded", () => {
   renderDictionary();
   renderQuizQuestion();
   initScrollSpyAndProgress();
+  initTabs();
   initKeyboardShortcuts();
 });
 
@@ -244,6 +245,9 @@ function initScrollSpyAndProgress() {
 }
 
 function scrollToChapter(id) {
+  if (activeTab !== "handbook") {
+    switchTab("handbook", false);
+  }
   const el = document.getElementById(id);
   if (el) {
     const yOffset = -70;
@@ -253,18 +257,86 @@ function scrollToChapter(id) {
 }
 
 /* --------------------------------------------------------------------------
+   Tab Navigation Controller
+   -------------------------------------------------------------------------- */
+let activeTab = "handbook";
+const VALID_TABS = ["handbook", "dictionary", "visualizer", "launcher", "quiz"];
+
+function switchTab(tabId, updateHash = true) {
+  if (!VALID_TABS.includes(tabId)) {
+    tabId = "handbook";
+  }
+  activeTab = tabId;
+
+  // 1. Synchronize Tab Buttons (both in header nav-link and main tab bar)
+  document.querySelectorAll("[data-tab]").forEach(el => {
+    const t = el.getAttribute("data-tab");
+    el.classList.toggle("active", t === tabId);
+  });
+
+  // 2. Hide other tab panes, show target tab pane
+  document.querySelectorAll(".tab-pane").forEach(pane => {
+    pane.classList.remove("active");
+  });
+  const target = document.getElementById(`tab-${tabId}`);
+  if (target) {
+    target.classList.add("active");
+  }
+
+  // 3. Special handling for Visualizer Canvas when unhidden
+  if (tabId === "visualizer" && typeof gitVisualizer !== "undefined" && gitVisualizer) {
+    setTimeout(() => {
+      gitVisualizer.initCanvas();
+      gitVisualizer.render();
+    }, 60);
+  }
+
+  // 4. Update URL hash without breaking history
+  if (updateHash) {
+    try {
+      history.replaceState(null, "", `#${tabId}`);
+    } catch (e) {
+      window.location.hash = tabId;
+    }
+  }
+
+  // 5. Scroll smoothly to top
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function initTabs() {
+  window.addEventListener("hashchange", handleHashRouting);
+  handleHashRouting();
+}
+
+function handleHashRouting() {
+  const hash = (window.location.hash || "").replace("#", "").trim();
+  if (hash.startsWith("chap-")) {
+    switchTab("handbook", false);
+    setTimeout(() => scrollToChapter(hash), 150);
+  } else if (VALID_TABS.includes(hash)) {
+    switchTab(hash, false);
+  } else {
+    switchTab("handbook", false);
+  }
+}
+
+/* --------------------------------------------------------------------------
    Helpers & Keyboard Shortcuts
    -------------------------------------------------------------------------- */
 function initKeyboardShortcuts() {
   window.addEventListener("keydown", (e) => {
-    // Cmd+K or Ctrl+K opens dictionary search
+    // Cmd+K or Ctrl+K switches to dictionary tab and focuses search
     if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
       e.preventDefault();
-      const input = document.getElementById("dict-search-input");
-      if (input) {
-        input.focus();
-        input.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
+      switchTab("dictionary");
+      setTimeout(() => {
+        const input = document.getElementById("dict-search-input");
+        if (input) {
+          input.focus();
+          input.select();
+        }
+      }, 100);
     }
   });
 }
